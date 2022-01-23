@@ -1,12 +1,13 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
-const blogSchema = require('../schemas/blog');
-const Blog = new mongoose.model('blog', blogSchema);
+const expertiseSchema = require('../schemas/expertise');
+const Expertise = new mongoose.model('expertise', expertiseSchema);
+
 
 router.get('/', async (req, res) => {
     try {
-        const data = await Blog.find({});
+        const data = await Expertise.find({});
         res.status(200).json(data)
     } catch (err) {
         res.status(500).json({
@@ -16,11 +17,11 @@ router.get('/', async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-    const newBlog = new Blog(req.body);
+    const newExpertise = new Expertise(req.body);
 
     try {
-        const result = await newBlog.save();
-        res.status(200).json(result);
+        const saveExpertise = await newExpertise.save();
+        res.status(200).json(saveExpertise);
     } catch (err) {
         res.status(500).json(err);
     }

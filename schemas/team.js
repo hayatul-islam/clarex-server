@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const team = mongoose.Schema(
     {
         name: { type: String },
-        jub: { type: String },
+        job: { type: String },
         job_status: { type: String },
         location: { type: String },
         published: { type: String },
