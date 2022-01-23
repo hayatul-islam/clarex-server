@@ -28,9 +28,9 @@ mongoose.connect(uri,
     })
 
 app.use("/story", storyModels);
-app.use("/blog", blogModels);
-app.use("/team", teamModels);
-app.use("/office", officeModels);
+app.use("/blogs", blogModels);
+app.use("/teams", teamModels);
+app.use("/offices", officeModels);
 
 // image upload
 app.use("/images", express.static(path.join(__dirname, "public/images")));
