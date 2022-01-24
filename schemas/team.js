@@ -7,7 +7,10 @@ const team = mongoose.Schema(
         job_status: { type: String },
         location: { type: String },
         published: { type: String },
-        image: { type: String },
+        image: {
+            data: Buffer,
+            type: String
+        },
         email: { type: String },
         linkedin: { type: String },
         about: { type: String },
