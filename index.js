@@ -9,6 +9,7 @@ const blogModels = require('./models/blog');
 const teamModels = require('./models/team');
 const officeModels = require('./models/office');
 const expertiseModels = require('./models/expretise');
+const userModels = require('./models/user');
 
 const port = process.env.PORT || 4040;
 
@@ -33,6 +34,7 @@ app.use("/blogs", blogModels);
 app.use("/teams", teamModels);
 app.use("/offices", officeModels);
 app.use("/expertise", expertiseModels);
+app.use("/users", userModels);
 
 // image upload
 app.use("/images", express.static(path.join(__dirname, "public/images")));
