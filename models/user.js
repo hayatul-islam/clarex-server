@@ -27,4 +27,29 @@ router.post("/", async (req, res) => {
     }
 });
 
+router.put("/", async (req, res) => {
+
+    await User.findOneAndUpdate(
+        { email: req.body.email }, {
+        $set: {
+            role: 'admin'
+        }
+    },
+        {
+            new: true,
+            useFindAndModify: false,
+        }, // responsive
+        (err) => {
+            if (err) {
+                res.status(500).json({
+                    error: "There was server side error!"
+                })
+            } else {
+                res.status(200).json({
+                    message: "Make an admin successfully!"
+                })
+            }
+        })
+});
+
 module.exports = router;
